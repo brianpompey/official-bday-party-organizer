@@ -1,11 +1,11 @@
 class TeachersController < ApplicationController
 
   get '/signup' do
-    if !logged_in?
+#    if !logged_in?
       erb :'teachers/signup'
-    else
-      redirect to '/my_students'
-    end
+#    else
+#      redirect to '/my_students'
+#    end
   end
 
   post '/signup' do
@@ -21,11 +21,11 @@ class TeachersController < ApplicationController
   end
 
   get '/login' do
-    if !logged_in?
+#    if !logged_in?
       erb :'teachers/login'
-    else
-      redirect to '/my_students'
-    end
+#    else
+#      redirect to '/my_students'
+#    end
   end
 
   post '/login' do
@@ -39,11 +39,11 @@ class TeachersController < ApplicationController
   end
 
   get '/logout' do
-    if logged_in?
+#    if logged_in?
       session.destroy
-      redirect to '/login'
-    else
-      redirect to '/'
-    end
+#      redirect to '/login'
+#    else
+#      redirect to '/'
+#    end
   end
 end

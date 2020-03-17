@@ -2,21 +2,21 @@ class StudentsController < ApplicationController
 
   # GET: /students
   get "/students" do
-    if logged_in?
-      @students = Student.
+  #  if logged_in?
+      @students = Student.all
       erb :'students/my_students'
-    else
-      redirect to '/login'
-    end
+  #  else
+  #    redirect to '/login'
+  #  end
   end
 
   # GET: /students/new
   get "/students/new" do
-    if logged_in?
+#    if logged_in?
       erb :'students/new'
-    else
-      redirect to '/login'
-    end
+#    else
+#      redirect to '/login'
+#    end
   end
 
   # POST: /students
