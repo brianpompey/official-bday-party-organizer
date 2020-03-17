@@ -9,15 +9,15 @@ class TeachersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:name] == "" || params[:email] == "" || params[:password] == ""
-      redirect to '/signup', locals: {message: "Please fill out properly"}
+#    if params[:name] == "" || params[:email] == "" || params[:password] == ""
+#      redirect to '/signup', locals: {message: "Please fill out properly"}
       #error message should show up on the page
-    else
+#    else
       @teacher = Teacher.new(:name => params[:name], :email => params[:email], :password => params[:password])
       @teacher.save
       session[:user_id] = @teacher.id
       redirect to '/my_students'
-    end
+#    end
   end
 
   get '/login' do
