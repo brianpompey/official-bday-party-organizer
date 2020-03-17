@@ -10,7 +10,7 @@ class TeachersController < ApplicationController
 
   post '/signup' do
     if params[:name] == "" || params[:email] == "" || params[:password] == ""
-      redirect to '/signup'
+      redirect to '/signup', locals: {message: "Please fill out properly"}
       #error message should show up on the page
     else
       @teacher = Teacher.new(:name => params[:name], :email => params[:email], :password => params[:password])
