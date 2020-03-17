@@ -56,7 +56,7 @@ class StudentsController < ApplicationController
       else
         @student = Student.find_by_id(params[:id])
         if @student && @student.teacher == current_user
-          if @student.update(student_name: params[:student_name]) || (student_birthday: params[:student_birthday])
+          if @student.update(student_name: params[:student_name]) || @student.update(student_birthday: params[:student_birthday])
             redirect to "/students/#{@student.id}"
           else
             redirect to "/students/#{@student.id}/edit"
@@ -82,5 +82,5 @@ class StudentsController < ApplicationController
       redirect to '/login'
     end
   end
-  
+
 end
