@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
     if logged_in?
       if params[:student_name] == "" || params[:student_birthday] == ""
         redirect to '/students/new'
-      else
+      else                  NEED HELP
         @student = @teacher.students.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday])
         @student.save
         redirect to '/my_students'
