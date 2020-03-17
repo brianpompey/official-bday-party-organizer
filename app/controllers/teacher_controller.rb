@@ -13,10 +13,10 @@ class TeachersController < ApplicationController
 #      redirect to '/signup', locals: {message: "Please fill out properly"}
       #error message should show up on the page
 #    else
-      @teacher = Teacher.new(:name => params[:name], :email => params[:email], :password => params[:password])
-      @teacher.save
-      session[:user_id] = @teacher.id
-      redirect to '/my_students'
+    @teacher = Teacher.new(name: params["name"], email: params["email"], password: params["password"])
+    @teacher.save
+    session[:user_id] = @teacher.id
+    redirect to '/students'
 #    end
   end
 
@@ -32,7 +32,7 @@ class TeachersController < ApplicationController
     teacher = Teacher.find_by(:name => params[:name])
     if teacher && teacher.authenticate(params[:password])
       session[:user_id] = @teacher.id
-      redirect to '/my_students'
+      redirect to '/students'
     else
       redirect to '/signup'
     end
