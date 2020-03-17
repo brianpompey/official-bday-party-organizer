@@ -40,10 +40,16 @@ class TeachersController < ApplicationController
 
   get '/logout' do
 #    if logged_in?
-      session.destroy
-#      redirect to '/login'
+      erb :'teachers/logout'
+
 #    else
 #      redirect to '/'
 #    end
   end
+
+  post '/logout' do
+    session.destroy
+    redirect to '/login'
+  end
+
 end
