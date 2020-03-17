@@ -24,10 +24,11 @@ class StudentsController < ApplicationController
     if logged_in?
       if params[:student_name] == "" || params[:student_birthday] == ""
         redirect to '/students/new'
-      else                  NEED HELP
-        @student = @teacher.students.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday])
+      else
+#        @student = @teacher.students.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday])
+        @student = Student.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday], :teacher_id => current_user.id)
         @student.save
-        redirect to '/my_students'
+        redirect to '/students'
       end
     else
       redirect to '/login'
@@ -62,7 +63,7 @@ class StudentsController < ApplicationController
             redirect to "/students/#{@student.id}/edit"
           end
         else
-          redirect to '/my_students'
+          redirect to '/students'
         end
       end
     else
@@ -77,7 +78,7 @@ class StudentsController < ApplicationController
       if @student && @student.teacher == current_user
         @student.delete
       end
-      redirect to '/my_students'
+      redirect to '/students'
     else
       redirect to '/login'
     end
