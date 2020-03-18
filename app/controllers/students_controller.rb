@@ -2,17 +2,16 @@ class StudentsController < ApplicationController
 
   # GET: /students
   get "/students" do
-    if logged_in?
-      if Student.teacher_id == current_user.id
-  #      Student.all.each do |student|
-  #        student.teacher_id
-  #      end
-        @students = Student.all
-        erb :'students/my_students'
-      end
-    else
-      redirect to '/login'
-    end
+#    if logged_in?
+#      if Student.teacher_id == current_user.id
+      @students = current_user.students
+
+      erb :'students/my_students'
+#    rescue
+#      puts 'error'
+#    else
+#      redirect to '/login'
+#    end
   end
 
   # GET: /students/new
@@ -56,14 +55,15 @@ class StudentsController < ApplicationController
 
   # PATCH: /students/5
   patch "/students/:id" do
+    @student = Student.find_by_id(params[:id])
     if logged_in?
       if params[:student_name] == "" || params[:student_birthday] == ""
-        redirect to '/students/#{params[:id]}/edit'
+        redirect to "/students/#{@student.id}/edit"
       else
-        @student = Student.find_by_id(params[:id])
+
         if @student && @student.teacher == current_user
-          if @student.update(student_name: params[:student_name]) || @student.update(student_birthday: params[:student_birthday])
-            redirect to "/students/#{@student.id}"
+          if @student.update(student_name: params[:student_name], student_birthday: params[:student_birthday])
+            redirect to "/students"
           else
             redirect to "/students/#{@student.id}/edit"
           end
@@ -78,15 +78,16 @@ class StudentsController < ApplicationController
 
   # DELETE: /students/5/delete
   delete "/students/:id/delete" do
-    if logged_in?
-      @student = Student.find_by_id(params[:id])
-      if @student && @student.teacher == current_user
-        @student.delete
-      end
-      redirect to '/students'
-    else
-      redirect to '/login'
+    @student = Student.find_by_id(params[:id])
+#    if logged_in?
+    if @student && @student.teacher == current_user
+      @student.delete
+  #    redirect to '/students'
     end
+    redirect to '/students'
+#    else
+#      redirect to '/login'
+#    end
   end
 
 end

@@ -3,10 +3,15 @@
 <% @students.each do |student| %>
   <div>
     <%= student.student_name %> <%= student.student_birthday %>
+    <button><a href="/students/<%= student.id %>/edit">Edit Student</a></button>
+    <form method="post" action="/students/<%=student.id%>/delete">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Student">
+    </form>
 
   </div>
 <% end %>
-  #edit button
+
   <br>
 <a href="/students/new">Add Student</a>
 <br>
