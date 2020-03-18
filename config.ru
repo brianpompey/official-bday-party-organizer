@@ -8,3 +8,4 @@ use Rack::MethodOverride
 use StudentsController
 use TeachersController
 run ApplicationController
+use PartiesController
