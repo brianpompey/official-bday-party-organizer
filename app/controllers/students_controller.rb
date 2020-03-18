@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   # GET: /students
   get "/students" do
     if logged_in?
-      @students = Student.all
+      @students = Student.current_user.id
       erb :'students/my_students'
     else
       redirect to '/login'

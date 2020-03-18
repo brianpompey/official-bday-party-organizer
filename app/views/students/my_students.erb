@@ -2,12 +2,12 @@
 
 <% @students.each do |student| %>
   <div>
-    <%= student.name %>
-    <%= student.birthday %>
-    #edit button
+    <%= student.student_name %> <%= student.student_birthday %>
+
   </div>
 <% end %>
-
+  #edit button
+  <br>
 <a href="/students/new">Add Student</a>
 <br>
 
