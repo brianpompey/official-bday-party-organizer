@@ -4,6 +4,9 @@ class StudentsController < ApplicationController
   get "/students" do
     if logged_in?
       if Student.teacher_id == current_user.id
+  #      Student.all.each do |student|
+  #        student.teacher_id
+  #      end
         @students = Student.all
         erb :'students/my_students'
       end
