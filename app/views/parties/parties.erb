@@ -1,0 +1,12 @@
+<h2> All Student Parties </h2>
+
+<% @parties.each do |party| %>
+  <div>
+    <%= party.name %><%= party.date %><%= party.venue %>
+    <button><a href="/parties/<%= party.id %>/edit">Edit Party</a></button>
+    <form method="post" action="/parties/<%=party.id%>/delete">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Party">
+
+  </div>
+<% end %>
