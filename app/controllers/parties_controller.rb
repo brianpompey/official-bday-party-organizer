@@ -16,10 +16,10 @@ class PartiesController < ApplicationController
   end
 
   # POST: /parties
-  post "/parties" do
+  post "/students/<%= @student.id %>/parties" do
     if logged_in?
       if params[:venue] == ""
-        redirect to '/students/new'
+        redirect to '/parties/new'
       else
 #        @student = @teacher.students.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday])
         @party = Party.new(:venue => params[:venue], :student_id => current_user.student.id, :teacher_id => current_user.id)
