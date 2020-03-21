@@ -4,6 +4,7 @@ class PartiesController < ApplicationController
   get "/parties" do
     @parties = Party.all
     erb :"/parties/parties"
+
   end
 
   # GET: /parties/new
