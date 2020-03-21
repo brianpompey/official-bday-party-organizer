@@ -8,7 +8,7 @@ class PartiesController < ApplicationController
   end
 
   # GET: /parties/new
-  get "students/:id/parties/new" do
+  get "/students/:id/parties/new" do
     if logged_in?
       erb :'parties/new'
     else
@@ -17,12 +17,12 @@ class PartiesController < ApplicationController
   end
 
   # POST: /parties
-  post "/students/:id/parties" do
+  post "/:id/parties" do
     if logged_in?
       if params[:venue] == ""
         redirect to '/parties/new'
       else
-        @party = Party.new(:venue => params[:venue], :student_id => current_user.student.id, :teacher_id => current_user.id)
+        @party = Party.new(:venue => params[:venue], :student_id => :id, :teacher_id => current_user.id)
         @party.save
         redirect to '/parties'
       end
