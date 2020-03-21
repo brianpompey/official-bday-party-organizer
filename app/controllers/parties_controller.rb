@@ -3,12 +3,13 @@ class PartiesController < ApplicationController
   # GET: /parties
   get "/parties" do
     @parties = Party.all
+    @student = Student.find_by_id(params[:id])
     erb :"/parties/parties"
-
   end
 
   # GET: /parties/new
   get "/students/:id/parties/new" do
+    @student = Student.find_by_id(params[:id])
     if logged_in?
       erb :'parties/new'
     else
@@ -17,15 +18,12 @@ class PartiesController < ApplicationController
   end
 
   # POST: /parties
-  post "/:id/parties" do
+  post "/students/:id/parties" do
+    @student = Student.find_by_id(params[:id])
     if logged_in?
-      if params[:venue] == ""
-        redirect to '/parties/new'
-      else
-        @party = Party.new(:venue => params[:venue], :student_id => :id, :teacher_id => current_user.id)
-        @party.save
-        redirect to '/parties'
-      end
+      @party = Party.new(:venue => params[:venue], :student_name => params[:@student.name], :teacher_id => current_user.id)
+      @party.save
+      redirect to '/parties'
     else
       redirect to '/login'
     end
