@@ -2,16 +2,12 @@ class StudentsController < ApplicationController
 
   # GET: /students
   get "/students" do
-#    if logged_in?
-#      if Student.teacher_id == current_user.id
+    if logged_in?
       @students = current_user.students
-
       erb :'students/my_students'
-#    rescue
-#      puts 'error'
-#    else
-#      redirect to '/login'
-#    end
+    else
+      redirect to '/login'
+    end
   end
 
   # GET: /students/new
@@ -27,9 +23,9 @@ class StudentsController < ApplicationController
   post "/students" do
     if logged_in?
       if params[:student_name] == "" || params[:student_birthday] == ""
+        flash[:error] = "Invalid input, please try again"
         redirect to '/students/new'
       else
-#        @student = @teacher.students.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday])
         @student = Student.new(:student_name => params[:student_name], :student_birthday => params[:student_birthday], :teacher_id => current_user.id)
         @student.save
         redirect to '/students'
@@ -58,6 +54,7 @@ class StudentsController < ApplicationController
     @student = Student.find_by_id(params[:id])
     if logged_in?
       if params[:student_name] == "" || params[:student_birthday] == ""
+        flash[:error] = "Invalid input, please try again"
         redirect to "/students/#{@student.id}/edit"
       else
 

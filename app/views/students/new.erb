@@ -1,5 +1,11 @@
 <html>
 <body>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+<br><br>
 <h2>Add a Student to your List:</h2>
 
 <form action="/students" method="post">

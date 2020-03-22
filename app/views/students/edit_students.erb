@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+<br><br>
 <h2>Edit Your Student's Information:</h2>
 
 <form action="/students/<%= @student.id%>" method="post">
