@@ -32,7 +32,7 @@ class PartiesController < ApplicationController
   get "/parties/:id/edit" do
     if logged_in?
       @party = Party.find_by_id(params[:id])
-      if @party && @party.student == current_user.student
+      if @party
         erb :'parties/edit_parties'
       else
         erb :'/parties'
@@ -44,7 +44,22 @@ class PartiesController < ApplicationController
 
   # PATCH: /parties/5
   patch "/parties/:id" do
-    redirect "/parties/:id"
+    @party = Party.find_by_id(params[:id])
+    if logged_in?
+      if params[:student_name] == ""
+        flash[:error] = "Invalid input, please try again"
+        redirect to "/parties/#{@party.id}/edit"
+      else
+        if @party.update(venue: params[:venue])
+          redirect to "/parties"
+        else
+          redirect to "/parties"
+        end
+        redirect to "/parties"
+      end
+    else
+      redirect to '/login'
+    end
   end
 
   # DELETE: /parties/5/delete
