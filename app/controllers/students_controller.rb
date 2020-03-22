@@ -76,15 +76,14 @@ class StudentsController < ApplicationController
   # DELETE: /students/5/delete
   delete "/students/:id/delete" do
     @student = Student.find_by_id(params[:id])
-#    if logged_in?
-    if @student && @student.teacher == current_user
-      @student.delete
-  #    redirect to '/students'
+    if logged_in?
+      if @student && @student.teacher == current_user
+        @student.delete
+      end
+      redirect to '/students'
+    else
+      redirect to '/login'
     end
-    redirect to '/students'
-#    else
-#      redirect to '/login'
-#    end
   end
 
 end
