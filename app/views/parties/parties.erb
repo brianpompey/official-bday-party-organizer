@@ -2,7 +2,7 @@
 
 <% @parties.each do |party| %>
   <div>
-  <%= party.venue %>
+  <%= party.student_name %><%= party.venue %> 
     <button><a href="/parties/<%= party.id %>/edit">Edit Party</a></button>
     <form method="post" action="/parties/<%=party.id%>/delete">
       <input id="hidden" type="hidden" name="_method" value="DELETE">

@@ -21,7 +21,8 @@ class PartiesController < ApplicationController
   post "/students/:id/parties" do
     @student = Student.find_by_id(params[:id])
     if logged_in?
-      @party = Party.new(:venue => params[:venue], :student_name => params[:@student.name], :teacher_id => current_user.id)
+      @party = Party.new(:venue => params[:venue], :student_id => @student.student_id, :student_name => @student.student_name, :teacher_id => current_user.id)
+      binding.pry
       @party.save
       redirect to '/parties'
     else
