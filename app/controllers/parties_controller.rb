@@ -19,10 +19,8 @@ class PartiesController < ApplicationController
 
   # POST: /parties
   post "/students/:id/parties" do
-    @student = Student.find_by_id(params[:id])
-    @student_name = @student.student_name
     if logged_in?
-      @party = Party.new(:venue => params[:venue], :student_name => @student_name, :teacher_id => current_user.id)
+      @party = Party.new(:venue => params[:venue], :student_name => params[:student_name], :teacher_id => current_user.id)
       @party.save
       redirect to '/parties'
     else
@@ -52,9 +50,7 @@ class PartiesController < ApplicationController
   # DELETE: /parties/5/delete
   delete "/parties/:id/delete" do
     @party = Party.find_by_id(params[:id])
-    if @party && @party.student == current_user.student
-      @party.delete
-    end
+    @party.delete
     redirect to '/parties'
   end
 end
