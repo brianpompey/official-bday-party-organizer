@@ -6,7 +6,7 @@
 
     <% @students.each do |student| %>
       <div>
-        <%= student.student_name %> <%= student.student_birthday %>
+        <%= student.student_name %> <%= student.student_birthday %><br>
         <button><a href="/students/<%= student.id %>/edit">Edit Student</a></button>
         <form method="post" action="/students/<%=student.id%>/delete">
           <input id="hidden" type="hidden" name="_method" value="DELETE">

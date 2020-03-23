@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200322181352) do
+ActiveRecord::Schema.define(version: 20200323012816) do
 
   create_table "parties", force: :cascade do |t|
     t.string   "venue"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20200322181352) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "student_name"
+    t.date     "party_date"
   end
 
   create_table "students", force: :cascade do |t|

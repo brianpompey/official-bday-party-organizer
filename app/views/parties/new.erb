@@ -10,6 +10,7 @@
 
     <form action="/students/:id/parties" method="post">
       <p>Student's Name: <input type="text" name="student_name" value="<%= @student.student_name%>"></p>
+      <p>Party Date: <input type="date" name="party_date" value="<%= @student.student_birthday%>"></p>
       <label for="venue">Choose a venue:</label>
       <select id="venue" name="venue">
         <option value="Gym">Gymnasium</option>

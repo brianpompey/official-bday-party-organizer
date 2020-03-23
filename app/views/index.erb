@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
   <body>
 
     <img src="https://patch.com/img/cdn/users/22574550/2014/09/raw/5428cbbad070b.jpg" alt="kids having fun" title="Kid's Party!">
@@ -10,20 +15,20 @@
     <nav>
       <% if logged_in? %>
 
-        <a href="/students">View My Students</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/students">View My Students</a></button>
 
-        <a href="/students/new">Add Student</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/students/new">Add Student</a></button>
         <br>
-        <a href="/parties">View All Parties</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/parties">View All Parties</a></button>
 
-        <a href="/parties/new">Add Party</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/parties/new">Add Party</a></button>
         <br>
-        <a href="/logout">Logout</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/logout">Logout</a></button>
 
       <% else %>
     <h2>Please log in or Sign up (if new) to register your student's party</h1>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log In</a>
+        <button class="button **is-large is-success is-rounded**"><a href="/signup">Sign Up</a></button>
+        <button class="button **is-large is-success is-rounded**"><a href="/login">Log In</a></button>
 
       <% end %>
 

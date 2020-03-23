@@ -20,7 +20,7 @@ class PartiesController < ApplicationController
   # POST: /parties
   post "/students/:id/parties" do
     if logged_in?
-      @party = Party.new(:venue => params[:venue], :student_name => params[:student_name], :teacher_id => current_user.id)
+      @party = Party.new(:venue => params[:venue], :student_name => params[:student_name], :party_date => params[:party_date], :teacher_id => current_user.id)
       @party.save
       redirect to '/parties'
     else
