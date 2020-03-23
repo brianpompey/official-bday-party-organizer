@@ -1,18 +1,20 @@
-<html>
-<body>
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-<br><br>
-<h2>Add a Student to your List:</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <br><br>
+    <h2>Add a Student to your List:</h2>
 
-<form action="/students" method="post">
-  <p>Student's Name: <input type="text" name="student_name" placeholder="First and Last Name"></p>
-  <p>Student's Birthday: <input type="date" name="student_birthday" placeholder="YYYY-MM-DD Format"></p>
-  <p><input type="submit" value="submit"></p>
-</form>
+    <form action="/students" method="post">
+      <p>Student's Name: <input type="text" name="student_name" placeholder="First and Last Name"></p>
+      <p>Student's Birthday: <input type="date" name="student_birthday" placeholder="YYYY-MM-DD Format"></p>
+      <p><input type="submit" value="submit"></p>
+    </form>
 
-</body>
+  </body>
 </html>
