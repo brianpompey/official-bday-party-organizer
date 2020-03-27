@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h2>Ok, Now it's time to select a party venue for your student's party</h2>
+
+
+    <h3>Remember, if there's a conflict with another student's party, you may be</h3>
+    <h3>asked to share the space with that student for a big joint party blowout!</h3>
+
+    <form action="/students/:id/parties" method="post">
+      <p>Student's Name: <input type="text" name="student_name" value="<%= @student.student_name%>"></p>
+      <p>Party Date: <input type="date" name="party_date" value="<%= @student.student_birthday%>"></p>
+      <label for="venue">Choose a venue:</label>
+      <select id="venue" name="venue">
+        <option value="Gym">Gymnasium</option>
+        <option value="Gym*">Gym(will share)</option>
+        <option value="Caf">Cafeteria</option>
+        <option value="Caf*">Cafeteria(will share)</option>
+      </select>
+      <input type="submit">
+    </form>
+  </body>
+</html>

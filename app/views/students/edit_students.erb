@@ -1,8 +1,20 @@
-<h2>Edit Your Student's Information:</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <br><br>
+    <h2>Edit Your Student's Information:</h2>
 
-<form action="/students/<%= @student.id%>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="student_name" value="<%= @student.student_name %>"><br>
-  <input type="date" name="student_birthday" value="<%= @student.student_birthday %>"><br>
-  <input type="submit" value="submit">
-</form>
+    <form action="/students/<%= @student.id%>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="text" name="student_name" value="<%= @student.student_name %>"><br>
+      <input type="date" name="student_birthday" value="<%= @student.student_birthday %>"><br>
+      <input type="submit" value="submit">
+    </form>
+  </body>
+</html>

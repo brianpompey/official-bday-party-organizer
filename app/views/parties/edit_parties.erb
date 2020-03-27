@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <h2>Edit Party Information:</h2>
+
+    <form action="/parties/<%= @party.id%>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <p>Student's Name: <input type="text" name="student_name" value="<%= @party.student_name %>"><br>
+      <label for="venue">Choose a venue:</label>
+      <select id="venue" name="venue">
+        <option value="Gym">Gymnasium</option>
+        <option value="Gym*">Gym(will share)</option>
+        <option value="Caf">Cafeteria</option>
+        <option value="Caf*">Cafeteria(will share)</option>
+      </select>
+      <input type="submit">
+    </form>
+    
+  </body>
+</html>

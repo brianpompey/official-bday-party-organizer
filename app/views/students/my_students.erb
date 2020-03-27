@@ -1,19 +1,29 @@
-<h2>My Students</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h2>My Students</h2>
 
-<% @students.each do |student| %>
-  <div>
-    <%= student.student_name %> <%= student.student_birthday %>
-    <button><a href="/students/<%= student.id %>/edit">Edit Student</a></button>
-    <form method="post" action="/students/<%=student.id%>/delete">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Student">
-    </form>
+    <% @students.each do |student| %>
+      <div>
+        <%= student.student_name %> <%= student.student_birthday %><br>
+        <button><a href="/students/<%= student.id %>/edit">Edit Student</a></button>
+        <form method="post" action="/students/<%=student.id%>/delete">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete Student">
+        </form>
+        <a href="/students/<%= student.id %>/parties/new">Add A Party</a><br><br>
 
-  </div>
-<% end %>
+      </div>
+    <% end %>
 
-  <br>
-<a href="/students/new">Add Student</a>
-<br>
+      <br>
+    <a href="/students/new">Add Student</a>
+    <br>
+    <a href="/parties">View Parties</a>
+    <br>
 
-<a href="/logout">Logout</a>
+    <a href="/logout">Logout</a>
+
+  </body>
+</html>
