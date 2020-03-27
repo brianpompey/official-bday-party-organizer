@@ -9,14 +9,12 @@
 #  Teacher.create( name: name, email: email, password: password )
 #end
 
-Teacher.create(:name => "Matt Hardy", :email => "matthardy@flat.edu", :password_digest => "hardip")
+Teacher.create(:name => "Matt Hardy", :email => "matthardy@flat.edu", :password => "hardip")
 
-Teacher.create(:name => "Chelsea Matthews", :email => "chelmatt@flat.edu", :password_digest => "mattchel")
+Teacher.create(:name => "Chelsea Matthews", :email => "chelmatt@flat.edu", :password => "mattchel")
 
-Teacher.create(:name => "Robert Fredericks", :email => "rfreddy@flat.edu", :password_digest => "robfred")
+Teacher.create(:name => "Robert Fredericks", :email => "rfreddy@flat.edu", :password => "robfred")
 
-Teacher.create(:name => "James Wilkos", :email => "jwilkos@flat.edu", :password_digest => "jwilly")
+Teacher.create(:name => "James Wilkos", :email => "jwilkos@flat.edu", :password => "jwilly")
 
-Teacher.create(:name => "Barry White", :email => "bwhite@flat.edu", :password_digest => "barry93")
-
-puts "Success: Theme data loaded"
+Teacher.create(:name => "Barry White", :email => "bwhite@flat.edu", :password => "barry93")

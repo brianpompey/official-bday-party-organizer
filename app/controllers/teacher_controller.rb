@@ -29,9 +29,9 @@ class TeachersController < ApplicationController
   end
 
   post '/login' do
-    teacher = Teacher.find_by(:name => params[:name])
+    teacher = Teacher.find_by(:email => params[:email])
     if teacher && teacher.authenticate(params[:password])
-      session[:user_id] = @teacher.id
+      session[:user_id] = teacher.id
       redirect to '/students'
     else
       flash[:error] = "Invalid information. Please Sign up"
