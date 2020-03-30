@@ -7,10 +7,14 @@
     <% @parties.each do |party| %>
       <div>
       <%= party.student_name %>'s party in the <%= party.venue %> on <%= party.party_date.strftime("%b %d") %><br>
-        <button><a href="/parties/<%= party.id %>/edit">Edit Party</a></button>
-        <form method="post" action="/parties/<%=party.id%>/delete">
-          <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete Party">
+        <% if party.teacher.id == current_user.id %>
+          <button><a href="/parties/<%= party.id %>/edit">Edit Party</a></button>
+          <form method="post" action="/parties/<%=party.id%>/delete">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Party"><br><br>
+        <% else %>
+        <br><br>
+        <% end %>
       </div>
     <% end %><br><br>
 
