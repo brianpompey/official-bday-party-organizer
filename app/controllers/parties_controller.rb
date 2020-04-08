@@ -21,6 +21,7 @@ class PartiesController < ApplicationController
   post "/students/:id/parties" do
     if logged_in?
       @party = Party.new(:venue => params[:venue], :student_name => params[:student_name], :party_date => params[:party_date], :teacher_id => current_user.id)
+   #   if @party.date
       @party.save
       redirect to '/parties'
     else
