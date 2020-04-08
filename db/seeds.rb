@@ -12,22 +12,24 @@ Teacher.create(:name => "Barry White", :email => "bwhite@flat.edu", :password =>
 
 Student.delete_all
 
-Student.create(:student_name => "Jimmy Green", :student_birthday => "2010-10-5", :teacher_id => 13)
+Student.create(:student_name => "Jimmy Green", :student_birthday => "2010-10-5", :teacher_id => 94)
 
-Student.create(:student_name => "Lonnie Parker", :student_birthday => "2010-6-8", :teacher_id => 13)
+Student.create(:student_name => "Lonnie Parker", :student_birthday => "2010-6-8", :teacher_id => 94)
 
-Student.create(:student_name => "Tim Hall", :student_birthday => "2010-3-5", :teacher_id => 14)
+Student.create(:student_name => "Tim Hall", :student_birthday => "2010-3-5", :teacher_id => 95)
 
-Student.create(:student_name => "Pam Hollis", :student_birthday => "2010-4-4", :teacher_id => 14)
+Student.create(:student_name => "Pam Hollis", :student_birthday => "2010-4-4", :teacher_id => 95)
 
-Student.create(:student_name => "Brad Wilson", :student_birthday => "2010-7-8", :teacher_id => 15)
+Student.create(:student_name => "Brad Wilson", :student_birthday => "2010-7-8", :teacher_id => 96)
 
-Student.create(:student_name => "Terry Chan", :student_birthday => "2010-11-11", :teacher_id => 15)
+Student.create(:student_name => "Terry Chan", :student_birthday => "2010-11-11", :teacher_id => 96)
 
-Student.create(:student_name => "Mike Campbell", :student_birthday => "2010-5-5", :teacher_id => 16)
+Student.create(:student_name => "Mike Campbell", :student_birthday => "2010-5-5", :teacher_id => 97)
 
-Student.create(:student_name => "Larry Thomas", :student_birthday => "2010-6-6", :teacher_id => 16)
+Student.create(:student_name => "Larry Thomas", :student_birthday => "2010-6-6", :teacher_id => 97)
 
-Student.create(:student_name => "Cal Webber", :student_birthday => "2010-7-7", :teacher_id => 17)
+Student.create(:student_name => "Cal Webber", :student_birthday => "2010-7-7", :teacher_id => 98)
 
-Student.create(:student_name => "Jeff Williams", :student_birthday => "2010-04-06", :teacher_id => 17)
+Student.create(:student_name => "Jeff Williams", :student_birthday => "2010-04-06", :teacher_id => 98)
+
+Party.delete_all
