@@ -1,4 +1,4 @@
-
+Teacher.delete_all
 
 Teacher.create(:name => "Matt Hardy", :email => "matthardy@flat.edu", :password => "hardip")
 
@@ -9,6 +9,8 @@ Teacher.create(:name => "Robert Fredericks", :email => "rfreddy@flat.edu", :pass
 Teacher.create(:name => "James Wilkos", :email => "jwilkos@flat.edu", :password => "jwilly")
 
 Teacher.create(:name => "Barry White", :email => "bwhite@flat.edu", :password => "barry93")
+
+Student.delete_all
 
 Student.create(:student_name => "Jimmy Green", :student_birthday => "2010-10-5", :teacher_id => 13)
 
